@@ -1,6 +1,6 @@
 package fr.keyce.openit;
 
-public class Computer {
+public abstract class Computer implements MaterialInterface{
 
 	private String name;
 	
@@ -45,5 +45,11 @@ public class Computer {
 	@Override
 	public String toString() {
 		return "Computer " + name + " a le numéro de série : " + serialNumber;
+	}
+
+	@Override
+	public float getPrice() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

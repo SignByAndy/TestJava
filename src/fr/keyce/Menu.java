@@ -5,10 +5,12 @@ import java.util.Scanner;
 import fr.keyce.openit.Computer;
 import fr.keyce.openit.apple.AppleComputer;
 import fr.keyce.openit.ibm.IBMComputer;
+import fr.keyce.openit.MaterialInterface;
+
 
 public class Menu {
 
-	private Computer[] computers = new Computer[0];
+	private MaterialInterface[] computers = new MaterialInterface[0];
 
 	public void displayMenu() {
 		String str;
@@ -60,7 +62,7 @@ public class Menu {
 		System.out.println("1 - Créer un ordinateur IBM");
 		System.out.println("2 - Créer un ordinateur Apple");
 		String type = sc.nextLine();
-		Computer computer = addComputer(type);
+		MaterialInterface computer = addComputer(type);
 		computer.setName(name);
 		computer.setSerialNumber(serialNumber);
 		System.out.println("Votre Ordinateur a été ajouté");
@@ -90,14 +92,14 @@ public class Menu {
 		String name = sc.nextLine();
 		System.out.println("Entrez le numéro de série de l'ordinateur : ");
 		String serialNumber = sc.nextLine();
-		Computer computer = computers[Integer.valueOf(computerId)];
+		MaterialInterface computer = computers[Integer.valueOf(computerId)];
 		computer.setName(name);
 		computer.setSerialNumber(serialNumber);
 
 	}
 
-	private Computer addComputer(String type) {
-		Computer[] newTab = new Computer[computers.length + 1];
+	private MaterialInterface addComputer(String type) {
+		MaterialInterface[] newTab = new MaterialInterface[computers.length + 1];
 		for (int i = 0; i < computers.length; i++) {
 			newTab[i] = computers[i];
 		}
@@ -110,14 +112,14 @@ public class Menu {
 			computers[computers.length - 1] = new AppleComputer();
 			break;
 			default:
-				computers[computers.length - 1] = new Computer();
+				System.out.println("mercii");
 				
 		}
 		return computers[computers.length - 1];
 	}
 
 	private void removeComputer(int position) {
-		Computer[] newTab = new Computer[computers.length - 1];
+		MaterialInterface[] newTab = new MaterialInterface[computers.length - 1];
 		for (int i = 0; i < computers.length; i++) {
 			if (i != position) {
 				if (i > position) {
